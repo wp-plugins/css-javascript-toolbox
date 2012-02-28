@@ -113,7 +113,7 @@ Sometimes a bug decides to rear its ugly head and when this happens, this is whe
 
 == Changelog ==
 
-= 0.8.0 =
+= 0.8 =
 * Modifying template code.
 * Header and Footer hooks support: Select in which hook to output CSS/JS code.
 * Blocks can be reordered.
