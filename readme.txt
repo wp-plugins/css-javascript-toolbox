@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: html, css, javascript, code, custom, page, pages, post, posts, category, categories, url
 Requires at least: 3.0
 Tested up to: 3.3.1
-Stable tag: 0.8
+Stable tag: 0.8.0
 
 Easily add custom CSS and JavaScript code to individual Pages, Posts, Categories, and URLs.
 
