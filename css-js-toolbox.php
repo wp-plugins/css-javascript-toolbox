@@ -165,9 +165,13 @@ if (!class_exists('cssJSToolbox')) {
 			}
 			// Start this plugin once all other plugins are fully loaded.
 			add_action('plugins_loaded', array(&self::$instance, 'start_plugin'));
-			// Activation.
-			register_activation_hook(__FILE__, array(&self::$instance, "activate_plugin"));
+			// Activation & Deactivbation.
+			register_activation_hook(__FILE__, array(&self::$instance, 'activate_plugin'));
 			register_deactivation_hook(__FILE__, array(&self::$instance, 'deactivate_plugin'));
+			// New installation or check for upgrade.
+			// Plugin activation hook is not fired when the Plugin updated since Wordpress 3.1.
+			// No worries the code inside will not executed twice.
+			$this->checkInstallation();
 		}
 		
 		/**
@@ -968,11 +972,11 @@ if (!class_exists('cssJSToolbox')) {
 		}
 
 		/**
-		* Install CJT Plugin when first time activated.
+		* Install/Upgrade CJT Plugin.
 		* 
-		* Callback for register_Activation_hook.
+		* return void.
 		*/
-		function activate_plugin() {
+		function checkInstallation() {
 			$installed_db = get_option(self::DATABASE_VERSION_OPTION_NAME);
 			if (!$installed_db) { // New installation.
 				do_action('cjt_install');
@@ -986,9 +990,17 @@ if (!class_exists('cssJSToolbox')) {
 				update_option(self::DATABASE_VERSION_OPTION_NAME, CJTOOLBOX_VERSION);
 				do_action('cjt_upgraded', $installed_db);
 			}
-	    // Schedule Premium Check Update event. 
-	    wp_schedule_event(time() + 60, "daily", 'cjt_premium_update_checker');
-		} // End Plugin actvation
+		}
+		
+		/**
+		* Activate the Plugin
+		* 
+		* Callback for register_Activation_hook.
+		*/
+		public function activate_plugin() {
+		  // Schedule Premium Check Update event. 
+		  wp_schedule_event(time() + 60, "daily", 'cjt_premium_update_checker');
+		}
 		
 		/**
 		* Call back for register_deactivation_hook.
