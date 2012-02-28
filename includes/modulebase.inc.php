@@ -46,7 +46,7 @@ abstract class CJTModuleBase {
 		  trigger_error("Module method '{$method}' is not found", E_USER_ERROR);
 		}
 	}
-	
+
 	/**
 	* Module base constructor.
 	* 
@@ -63,6 +63,39 @@ abstract class CJTModuleBase {
 			// Extended cssJSToolbox class functionaity.
 			$this->cjToolbox = cssJSToolbox::$instance;
 			cssJSToolbox::$instance = $this;
+		}
+	}
+	
+	/**
+	* If the property is not implemented in $this
+	* object delegate cssJSToolbox property.
+	* 
+	* @param string Property name.
+	* @return mixed
+	*/
+	public function __get($property) {
+		if ($this->extendCJToolbox) {
+			return $this->cjToolbox->$property;
+		}
+		else {
+		  trigger_error("Module property '{$property}' is not found", E_USER_ERROR);
+		}
+	}
+	
+	/**
+	* If the property is not implemented in $this
+	* object delegate cssJSToolbox property.
+	* 
+	* @param string Property name.
+	* @param array Parameters.
+	* @return void
+	*/
+	public function __set($property, $value) {
+		if ($this->extendCJToolbox) {
+			$this->cjToolbox->$property = $value;
+		}
+		else {
+		  trigger_error("Module property '{$property}' is not found", E_USER_ERROR);
 		}
 	}
 

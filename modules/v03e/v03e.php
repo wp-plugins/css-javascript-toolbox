@@ -299,8 +299,7 @@ class CJTV03Error extends CJTModuleBase{
 		}
 		else {
 			// Save blocks meta data.
-			$this->cjToolbox->cjdata = $blocks;
-			$this->cjToolbox->saveData();
+			$this->cjToolbox->saveData($blocks);
 		}
 	}
 	
