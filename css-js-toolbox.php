@@ -3,7 +3,7 @@
  Plugin Name: CSS & JavaScript Toolbox
  Plugin URI: http://wipeoutmedia.com/wordpress-plugins/css-javascript-toolbox
  Description: WordPress plugin to easily add custom CSS and JavaScript to individual pages
- Version: 0.8
+ Version: 0.3
  Author: Wipeout Media 
  Author URI: http://wipeoutmedia.com/wordpress-plugins/css-javascript-toolbox
 
@@ -168,10 +168,6 @@ if (!class_exists('cssJSToolbox')) {
 			// Activation & Deactivbation.
 			register_activation_hook(__FILE__, array(&self::$instance, 'activate_plugin'));
 			register_deactivation_hook(__FILE__, array(&self::$instance, 'deactivate_plugin'));
-			// New installation or check for upgrade.
-			// Plugin activation hook is not fired when the Plugin updated since Wordpress 3.1.
-			// No worries the code inside will not executed twice.
-			$this->checkInstallation();
 		}
 		
 		/**
@@ -238,10 +234,12 @@ if (!class_exists('cssJSToolbox')) {
 		/**
 		* Save blocks data to database.
 		* 
+		* @param array Save blocks parameters if provided.
 		* @return void
 		*/
-		function saveData() {
-			update_option(self::BLOCKS_OPTION_NAME, $this->cjdata);
+		function saveData($blocks = null) {
+			$blocks = isset($blocks) ? $blocks : $this->cjdata;
+			update_option(self::BLOCKS_OPTION_NAME, $blocks);
 		}
 		
 		/**
@@ -290,6 +288,10 @@ if (!class_exists('cssJSToolbox')) {
 		*/
 		function start_plugin() {
 			if (is_admin()) {
+				// New installation or check for upgrade.
+				// Plugin activation hook is not fired when the Plugin updated since Wordpress 3.1.
+				// No worries the code inside will not executed twice.
+				$this->checkInstallation();
 				// Load Plugin translation.
 				load_plugin_textdomain(CJTOOLBOX_TEXT_DOMAIN, null, 'css-javascript-toolbox/langs');
 				// Load for admin panel
