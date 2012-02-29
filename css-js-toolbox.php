@@ -3,7 +3,7 @@
  Plugin Name: CSS & JavaScript Toolbox
  Plugin URI: http://wipeoutmedia.com/wordpress-plugins/css-javascript-toolbox
  Description: WordPress plugin to easily add custom CSS and JavaScript to individual pages
- Version: 0.3
+ Version: 0.8
  Author: Wipeout Media 
  Author URI: http://wipeoutmedia.com/wordpress-plugins/css-javascript-toolbox
 
