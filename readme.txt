@@ -3,7 +3,7 @@ Contributors: wipeoutmedia
 Author URL: http://wipeoutmedia.com/wordpress-plugins/css-javascript-toolbox/
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VMXTA3838F6A8
 Tags: html, css, javascript, code, custom, page, pages, post, posts, category, categories, url
-Requires at least: 3.0
+Requires at least: 3.2
 Tested up to: 3.3.1
 Stable tag: 0.8
 
