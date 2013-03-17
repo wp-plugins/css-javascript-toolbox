@@ -1,78 +1,65 @@
 === CSS & JavaScript Toolbox ===
 Contributors: wipeoutmedia
-Author URL: http://wipeoutmedia.com/wordpress-plugins/css-javascript-toolbox/
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VMXTA3838F6A8
-Tags: html, css, javascript, code, custom, page, pages, post, posts, category, categories, url
+Author URL: http://css-javascript-toolbox.com
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EWDWF75JHT9Q6
+Tags: plug, customise, style, scripts, hack, Wordpress, contribute, enhancing, HTML, CSS, Javascript, PHP, execute, display, output, header, footer, apply, requests, match, hook, run
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.2
-Tested up to: 3.3.1
-Stable tag: 0.8
+Tested up to: 3.5.1
+Stable tag: 6.0
 
-Easily add custom CSS and JavaScript code to individual Pages, Posts, Categories, and URLs.
+Easily add custom CSS, JavaScript, HTML and PHP code to unique CJT code blocks and assign them wherever you want.
 
 == Description ==
+CSS & JavaScript Toolbox (or CJT) is a powerful and flexible plugin, which allows you to contribute to your WordPress installation code via an easy-to-use web interface. You will be able to modify or extend your site functionality and appearance by adding custom code directly into CJT code blocks and assign them to pages, posts, custom posts, categories, URLs, expressions, and loads more!
 
-Add custom reusable CSS & JavaScript to pages, posts, categories & URLs.
-Full code template management system.
-Insert, create, save, edit and delete code templates.
-Add titles to code template and blocks.
-Reuse code via code templates drop-down list.
-Add code to header or footer.
-Add extra code blocks as needed.
-Default CSS/JS declarations.
-Simple and easy UI.
-Page/post nav icons for page preview.
-Multilingual support.
-Reorder, minimise & maximise blocks.
-Ability to embedded WordPress/CJToolbox Javascript files by just checking them.
-jQuery Cycle and jQuery Easing included.
-Ability to Backup and Restore blocks data.
+= Who is this plugin for? =
+The CJT plugin was created to help website authors write their own code. Basically, if love writing code, then you will love CJT. Designed and developed from the ground-up, CJT will suit novice users to seasoned website developers alike. You can also use it as a training tool, and learn step-by-step how to write and apply scripts yourself!  In fact, you will find useful script examples on the CJT website.
 
-[Click for full instructions with screenshots, usage hints & tips, code examples, and user feedback](http://wipeoutmedia.com/wordpress-plugins/css-javascript-toolbox)
+= Have you ever thought? =
+- Wouldn't it be great to have an easy way to plug your code into a Wordpress installation without having to know how to create a Wordpress plugin OR having to modify files through FTP, etc?
+- How nice it would be if you could simply add code that works with WordPress internal code without hacking away at core files?
+- How about a nice simple way to change the appearance of a page or post in your Wordpress website?
+- What about a means to organise your scripts and blocks of code in a simple web interface?
 
-= After Install & Activation =
-After you have installed and activated the CSS & JavaScript Toolbox plugin, you will notice a new menu item appear under Settings in your Dashboard. Click the 'CSS & JavaScript Toolbox' link in the main navigation (left side of your Dashboard).
+= How can CJT help you? =
+- The CJT plugin allows you to contribute to your Wordpress installation code via a simple web interface. You can modify and extend the functionality and appearance of your website by writing code directly into CJT code blocks.
+- Each code block represents a script (or block of code) that can apply/execute/output to a specific location (e.g. pages, posts, categories, etc) as defined in the Assignment Panel.
+- With CJT code blocks, you can add various types of code like CSS, JavaScript, HTML and PHP.  You can mix them into a single block or organise them into multiple separate blocks - the choice is yours.
+- The Auxiliary tab provides more 'assignment' options. Things like WordPress common requests such as: 404 Error, Tag, Archive, Entire website, Front-end, Dashboard Backend, and a number of others. 
+- You can create multiple code blocks, assign them to the same requests or different requests.
+- Manage all of your code blocks through a single webpage using Ajax requests.  No need to refresh your pages for any operation you need to make.
+- Changing the blocks order (via block dragging) allows you to specify what code block is used first. This way later blocks are overridden by higher-order code blocks.
+- By Deactivating code blocks, you can disable a code block from running. Using this feature is handy to test the behaviour you expected your block to make without changing a blocks properties (i.e. code, assigned requests).
+- All code blocks can have a unique name, which is ideal for organising and remembering the purpose of your block.
+- Output location is the location/point/hook for the block code to run. CJT now only supports two hook points - Header and Footer, which outputs code block in the page header - exactly before the closing HTML 'head' tag OR in the page footer - just before the end of the 'body' tag.
+- Integrating with [ACE Editor](http://ace.ajax.org/)! CJT proudly and perfectly integrates the ACE Editor and it is a dream to use while writing code for its smooth response, high performance and syntax highlighting.
+- We have included a number of tools for batch processing like: 'Delete All Empty Blocks', 'Delete All', 'Activate All', 'Deactivate All', 'Revert State'.
+- Individual code block Revisions can be saved.  Also, you can entirely save all of your code blocks with the Backups feature.
 
-= Default code example =
-First time installers will see a large editor window with a JavaScript example, that simply adds an alert box to a page of your choice. You can try it out by clicking on a page or post checkbox. Clicking the navigation icon (rectangle with arrow in corner) will open the page in a new window.  When you are done exploring, simply delete the entire text content from the editor.
+= Would like to know more? =
+If you would like to learn more, please click to [download the CJT User Manual](http://css-javascript-toolbox.com/css-javascript-toolbox-free).
 
-= Create a CSS & JavaScript Block title =
-Block names are useful to keep your code blocks managed and organised. Please type a relevant name that describes what your block does, then click Save.
+= Scripts, scripts, glorious scripts! =
+If you would like to learn how to use our plugin with some script examples, please visit our [Scripts page](http://css-javascript-toolbox.com/category/scripts).  If you are a script author and would like to get more exposure for your scripts, please submit your scripts to us.  Click [Submit a Script](http://css-javascript-toolbox.com/submit-a-script) to find out more. 
 
-= Write the code, then choose what the code affects =
-The large editor window is where you write your CSS or JavaScript code.  To allow your code to run on your website, you need to specify the pages, posts, categories, or page URLs you want the code to work with.  You can select multiple checkboxes and even make selections from the other tabs, just make sure you click the Save All Changes button when you are done. 
+= Add more power to CJT by installing Extensions! =
+CJT is extensible Plugin that allow to other Wordpress Plugins to extend or change its behaviour! CJT team start to create some useful extensions you can find in the [addons](http://css-javascript-toolbox.com/addons) page.
 
-= Insert, create, save, edit, delete your code templates =
-We have created a management system so you can perform these functions with your code templates.
-- down arrow icon: insert code from the drop-down list into the editor window (at cursor)
-- plus sign icon: popup appears so you can add a new code template, which will be added to the drop-down list
-- pen icon: popup appears allowing you edit any existing code templates
-- cross icon: confirmation popup appears before deleting the code template
+= Thank You =
+We would like to take this opportunity to thank you for installing our WordPress plugin.  We will continue to develop it further, making it bigger and better with awesome updates in the near future. If you like this plugin and not only find it useful, but appreciate the huge amount of work that has gone into creating it, you can certainly support us in a number of ways, including:
 
-= Adding more CSS & JavaScript Blocks = 
-Look for a button labelled Add New CSS/JS Block.  Click this and a popup will appear asking you to name the code block.  Once the Save button is clicked, an entirely new CSS & JavaScript code block with the new name is now added.  Note: CSS & JavaScript Blocks with EMPTY code will not be saved!
+- Providing a [feedback review and rating](http://wordpress.org/support/view/plugin-reviews/css-javascript-toolbox) on WordPress.org
+- Visiting our [CJT website](http://css-javascript-toolbox.com) and letting us know your thoughts on using the plugin, notifying us of any bugs and issues, and providing us with feature requests.
+- Liking [CJToolbox on Facebook](https://www.facebook.com/CJToolbox)
+- Following [CJToolbox on Twitter](https://twitter.com/CJToolbox)
+- Subscribing to [CJToolbox on Youtube](http://www.youtube.com/user/cjtoolbox)
 
-= Shuffle, drag, open and close CSS & JavaScript Blocks =
-If you hover your mouse cursor over the title bar of the code block, the cursor should change into a four-sided arrow.  This allows you to shuffle and drag the blocks around.  If you click on the title bar, the code block will open and close, which may come in handy if you have many code blocks.  
-
-= Header and Footer switch =
-This switch can be used to automatically add your code block to a header location or a footer location.
-
-= Saving your work =
-Although this plugin uses Ajax for the function calls (in other words does not refresh the webpage), please remember to save your code on a regular basis by clicking the Save All Changes button. 
-
-= Thank You = 
-We would like to take this opportunity to thank you for installing our plugin. :)
-We hope you enjoy using our new WordPress plugin with your development work.  We do plan on developing it further with some really cool updates in the near future. If you enjoy this plugin and not only find it useful, but appreciate the huge amount of work that has gone into creating it, you can certainly support us in a number of ways, including: 
-- a small donation via [our PayPal account](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VMXTA3838F6A8)
-- provide a rating on Wordpress.org
-- visit our [Wipeout Media](http://wipeoutmedia.com/wordpress-plugins/css-javascript-toolbox/) website and provide some user feedback or feature requests
-- Like our [Facebook page](http://www.facebook.com/pages/Wipeout-Media/209420279099268) - we really need Likes :) 
-- Follow us on [Twitter](http://twitter.com/wipeoutmedia) - we really need followers too :D
-
-Thank you very much for your support and we hope you enjoy using it as much as we enjoyed creating it.
+Thank you very much for your support and we hope you enjoy using it as much as we enjoy developing it.
 
 Regards,
-Wipeout Media Team
+Team CJT
 
 == Installation ==
 
@@ -81,65 +68,136 @@ Wipeout Media Team
 3. Click 'CSS & JavaScript Toolbox' link in the main navigation (left side of your Dashboard).
 
 == Frequently Asked Questions ==
+= Why was the CJT plugin developed and what is it used for? =
+The CJT plugin was created to help website authors write their own code. The plugin allows you to contribute to your Wordpress installation code via a simple web interface, where you can modify and extend the functionality and appearance of your website by writing code directly into CJT code blocks. A typical example of using the plugin can include changing the the way a specific Wordpress page is displayed, or making a page more interactive by adding some JavaScript (Dynamic HTML).
+
+= What is a CJT 'code block'? =
+The CJT code block is the basic unit for writing code and to associate it with specific Wordpress requests.
+
+= What is the Assignment Panel? =
+The Assignment Panel is a tabs window, which appears on the right side of the code block editor and is used to assign/apply the code block into specific requests.
+
+= Can you select more than one item from the Assignment Panel? = 
+Yes! You can select any number of items you need, there is no limitation regarding this.
+
+= Can you assign multiple blocks to the same items from the Assignment Panel? =
+Yes! It's one of the most useful features that CJT supports as it allows you to manage/split your codes into several code blocks, allowing you to override code in a former (or lower ordered) code block.
+
+= What is Pages, Posts, Categories and Custom Posts tabs? =
+These lists with checkboxes represent all of your WordPress Pages, Posts, Categories and Custom Posts that your entire website contains.  It also supports subpages and sub-categories, which you will also find in there. 
+
+= What is the Auxiliary tab? =
+As there are a number of requests that are not available as normal Wordpress items (e.g. Pages, Posts, etc) but since it's commonly required and most likely be used, you will find them pre-defined in the Auxiliary tab. In the Auxiliary tab you can find pages like: Home, Blog Index, Author, 404 error, Tag, Archive, Entire website, Front-end, Admin backend and much more!
+
+= Is it better to use the URLs tab, or should I select items if found through other tabs?  =
+Pages, Posts, Custom Posts and Categories tabs are created to simplify the assignment process for all types of users. Using URLs is great for fast performance as it requires less time to evaluate/identify the request! However, not all things can be done through the URLs tab.  For example, applying a single block to a Category index page and all its sub-categories.
+
+= What is the Advanced Expressions tab? =
+The Advanced Expression tab allows you to fully control what requests to integrate into the code block by using Regular Expressions. In other words, allowing CJT users to define more requests to assign the code block to.
 
 = Can I move the blocks around? =
 Yes by hovering your mouse cursor over the code block title bar until it turns into a four-sided arrow, this allow you to move the blocks.  Clicking the block title bar allows you to open and close the blocks.
 
-= I'm using the URL List and my code is not working? =
-Make sure you have copied and pasted the page, post, or category URL exactly as it appears in the address bar.  For example, you may have inadvertently included an extra forward slash at the end of your URL.
+= Is block immediately saved after I clicked 'create' on 'Create New Code Block' form? =
+Yes! The block is created and saved in your database, to discard the block you've to delete it.
 
-= Where did my CSS & JavaScript Block I created go? =
-If you have added a new CSS/JS block, created a title and clicked the Save All Changes button, and you refreshed the page when your block did not contain any code, then when the page reloads, your new 'empty' block will disappear. You must have code inside the block for it to permanently save.
+= Is block orders immediately saved after drag-and-drop block box?  =
+No! In order to save blocks order you need to press 'Save All Changes' button.
+
+= Is block immediately deleted after removed from the blocks list page? =
+No! After delete block you need to click 'Save All Changes' button.
+
+= I'm using the URLs tab and my code is not working? =
+Make sure you have copied and pasted the Page, Post, or Category URL exactly as it appears in the address bar.  For example, you may have inadvertently included an extra forward slash at the end of your URL.
 
 = Why use the Footer switch in Location/Hook? =
-Hook location feature gives you control over the location of outputting the CSS/JS code. This is useful in case overriding another Plugin CSS is required. Also sometimes its better to put your JS code in the footer to avoid slowing down your page load.
+Hook location feature gives you control over the location of outputting the CSS/JS code. This is useful in case overriding another plugins' CSS is required. Also sometimes its better to put your JS code in the footer to avoid slowing down your page load.
 
 = I received a weird error, what do I do now? =
-Sometimes a bug decides to rear its ugly head and when this happens, this is when we need your help.  If you receive an error, if it be a PHP error, or some functionality that isn't working for whatever reason, please visit our: [Wipeout Media website and let us know](http://wipeoutmedia.com/wordpress-plugins/css-javascript-toolbox/)
+Sometimes a bug decides to rear its ugly head and when this happens, this is when we need your help.  If you receive an error, if it be a PHP error, or some functionality that isn't working for whatever reason, please visit our: [CSS & JavaScript Toolbox website and let us know](http://css-javascript-toolbox.com/support/plugin/css-javascript-toolbox-forum)
 
 == Screenshots ==
 
-1. Main CSS & JavaScript Toolbox window showing the JS/CSS Block.
-2. Three tab sections showing Pages (& Posts), Categories, and URL List respectively.
-3. Popup window allowing you to edit the block name.
-4. Confirmation message after the Save Changes button is pressed.
-5. Popup window for writing and saving custom template CSS, JavaScript and jQuery code.
-6. Custom template code is now added and saved to the drop-down list for future use.
-7. With a press of a button, code is added to the block editor, and a page is assigned to use that code.
-8. CSS code is now styling the assigned page. Can be used for Posts, Categories and URLs too.
-9. Blocks can be ordered by click and dragging the block title bar. Single click minimises the block.
-10. Embedded WordPress or scripts that shipped out with CJToolbox Plugin by just checking them.
-11. Backup and Restore functions allow for backing up and restoring entire code blocks
+1. Main CJT V6 CE code block screen
+2. CJT Shortcode button
+
 
 == Changelog ==
 
+= 6.0 =
+* Core code is 100% re-written for optimum performance and future enhancements, and is 100% based on MVC (Model–view–controller) design.
+* 100% Using Web 2.0
+* Applying code blocks to the requests are now enhanced to boost performance.
+* The ability of interacting with admin pages too - not only the website side as in the previous versions.
+* Light-weight and smart user-interface.
+* Multiple operations can be executed at a time! For example, you can work on a code block while another block(s) is saving.
+* Code block data is automatically revisioned after saving.
+* Hot Key added for saving code block.
+* Empty blocks can now exist.
+* Interaction with each code block from a simple smart graphical Toolbox using Web 2.0
+* Delegate code block using Shortcodes. You can do that manually or through CJT smart TinyMCE dropdown list button.
+* Integrate ACE Editor to provide syntax highlighting and correction while writing codes!
+* Syntax highlighting for 4 languages: CSS, HTML, JavaScript and PHP.
+* Entire plugin is now extensible! CJT supports installed extensions to extend or enhance its features.
+* Batch operations (Toggling On and Off, Activate, Deactivate and Revert states, Delete empty and Delete all) toolbox allow for batch update of all code blocks.
+* Rename and save code block name.
+* You can now save multiple backups.
+* Activate and Deactivate code blocks feature.
+* Fix: blocks order was correctly displayed from the admin side, but had no effect while applying blocks to the website side.
+* Templates system is totally removed and will be presented with many enhancements via a separate extension.
+* Allow assigning code blocks to Posts and Custom Posts.
+* Apply 'Category' block to all the child posts (or sub-posts) within that category.
+* Assignment Panel smart feature to assist while working with hierarchical items (sub-pages, sub-categories, etc).
+* Auxiliary tab has been added to the Assignment Panel in order to organise all the predefined items (or requests) under a single tab.
+* Moved and added: 'Front Page', 'All Pages' and 'All Posts' predefined items to appear under the Auxiliary tab.
+* Newly defined: Blog Index, All Categories, Recent Posts, Entire Website, Website Backend, Search Pages, All Archives, Tag Archives, Author Archives, Attachment Pages and 404 Error, which are listed under the Auxiliary tab.
+* Support of regular expressions for defining code block Point-To-Hook
+* Security enhancements, only administrators can execute CJT backend operations.
+* Each block has an Information metabox (Author, created date, modification date, and Shortcode).
+* Create new block with initial properties (state, name and position).
+* Internal error detection routine for detecting Ajax errors that may have happened away from users view.
+* There is an extensive CJT User Manual PDF file attached in the /docs folder.  You can also download this file through the website - click for [CJT V6 CE User Manual](http://css-javascript-toolbox.com/css-javascript-toolbox-free)
+* Use of a separated Dashboard item to embrace all CJT plugin pages.
+* Added separate installer and upgrade pages for both CJT v0.3 and v0.8 to allow watching of the installation processes.
+* Added an uninstaller to completely erase all CJT data from the system.
+* 100% tested and working with BPS (BulletProof Security) plugin, after applying [simple Ajax bypass rule](http://css-javascript-toolbox.com/support/topic/bulletproof-security-ajax-issue-and-resolution-2)
+
 = 0.8 =
 * Modifying template code.
-* Header and Footer hooks support: Select in which hook to output CSS/JS code.
-* Blocks can be reordered.
-* Blocks can be named.
+* Header and footer hooks support so you can select which hook to output CSS/JS code.
+* Code blocks can be reordered.
+* Code blocks can now be given names that can be edited and saved.
 * New icons and improved UI.
 * Multilingual support: Only English translation is shipped with this version.
-* Style overriding: Blocks order allow later blocks styles to override former blocks.
-* Embedded Scripts: Embedded WordPress or Scripts that shipped out with CJToolbox Plugin by just checking them.
+* Style overriding: code blocks order will allow any higher-positioned blocks style syntax to override lower-positioned blocks style syntax.
+* Embedded Scripts: Embedded WordPress or Scripts that are shipped out with CJToolbox plugin by just checking them.
 * Backup and Restore blocks data.
-* Bug Fix: New blocks not toggling unless the page is refreshed.
-* Bug Fix: CSS/JS template extra slashes problem.
-* Bug Fix: Block deletion issues.
+* Bug Fix: New code blocks are not toggling unless the page is refreshed.
+* Bug Fix: CSS/JS template extra slash character problem.
+* Bug Fix: Code block deletion issues.
 * Bug Fix: Code is not applied to the URL list except the last URL.
 * Bug Fix: Cannot use string offset as array error.
 * Bug Fix: Invalid argument supplied foreach() error.
 
 = 0.3 =
-* This is the first and latest release.
+* This is the very first release.
 
 == Upgrade Notice ==
 
-New features has been added and a few bugs fixed.
+= 0.8 =
+- Templates feature/system is not available anymore! Please backup your templates data manually before upgrading. You can do this by copying and pasting CSS and JS template data into a text editor and saving your text file.
+- If you have any other third-party plugin or software integrated with the CJT plugin database, please note that the database structure has been completely changed in CJT V6 CE.
+- Linked scripts are now obsolete! If you've linked scripts with any code blocks, then those blocks might stop working.
+
+= 0.3 =
+- Templates feature/system is not available anymore! Please backup your templates data manually before upgrading. You can do this by copying and pasting CSS and JS template data into a text editor and saving your text file.
+- If you have any other third-party plugin or software integrated with the CJT plugin database, please note that the database structure has been completely changed in CJT V6 CE.
+- Code block names will get changed as 'CSS & Javascript Block' phrase will be removed and replaced by 'Block' word.
+- The double-slashes fix modules is now obsolete! If you have extra slashes (double slashes) in your code block you have to clean it manually yourself or upgrade to version 0.8 to fix them first!
 
 == Credits ==
 	
-Copyright (c) 2012, Wipeout Media.
+Copyright (c) 2013, Wipeout Media.
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
