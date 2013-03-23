@@ -54,7 +54,7 @@ abstract class CJTInstallerBlock extends ArrayIterator {
 		$block['created'] = $block['lastModified'] = current_time('mysql');
 		$block['owner'] = get_current_user_id();
 		// Translate old assignment panel to use the new structure!
-		if ($srcBlock['category']) {
+		if (isset($srcBlock['category'])) {
 			$pins['categories'] = $srcBlock['category'];
 		}
 		// Translate named map from last versions to the value used in the new versions!
@@ -64,7 +64,7 @@ abstract class CJTInstallerBlock extends ArrayIterator {
 			'allposts' => CJTBlockModel::PINS_POSTS_ALL_POSTS,
 			'frontpage' => CJTBlockModel::PINS_PAGES_FRONT_PAGE,
 		);
-		foreach (((array) $srcBlock['page']) as $assignedObject) {
+		foreach ((isset($srcBlock['page']) ? $srcBlock['page'] : array()) as $assignedObject) {
 			// Translate named pin to flag!
 			if (isset($namedPins[$assignedObject])) {
 				// Set pinPoint flags!
