@@ -76,33 +76,38 @@ class CJTInstallerModel {
 	* 
 	*/
 	public function getInternalVersionName() {
-		return str_replace('.', '', $this->installedDbVersion);
+		return str_replace(array('.', '-'), '', $this->installedDbVersion);
 	}
-	
+
 	/**
-	* put your comment there...
+	* Get installer operations for current CJT version!
 	* 
+	* @return array Operations list metadata.
 	*/
 	public function getOperations() {
-		// If installation is didn't never run before thise would be unset!
-		if (!($operations = get_option(self::INSTALLATION_STATE))) {
+		// Check if cached: Use only installer cache for 'current' CJT version.
+		if (!isset($operations[CJTPlugin::DB_VERSION])) {
 			// Import installer reflection!
 			cssJSToolbox::import('framework:installer:reflection.class.php');
 			// Get Installer operations.
 			cssJSToolbox::import('includes:installer:installer:installer.class.php');
-			$operations['operations']['install'] = CJTInstallerReflection::getInstance('CJTInstaller', 'CJTInstaller')->getOperations();
+			$operations[CJTPlugin::DB_VERSION]['operations']['install'] = CJTInstallerReflection::getInstance('CJTInstaller', 'CJTInstaller')->getOperations();
 			if ($this->isUpgrade()) {
 				// Get upgrade operations , Also cache upgrader info for later use!
-				$operations['upgrader'] = $upgrader = $this->getUpgrader();
+				$operations[CJTPlugin::DB_VERSION]['upgrader'] = $upgrader = $this->getUpgrader();
+				// Check if upgrader exists!
+				if (!file_exists(cssJSToolbox::resolvePath($upgrader['file']))) {
+					throw new Exception("Could not find upgrade/downgrade agent for installer '{$this->installedDbVersion}'! Incompatible version numbers! Upgrader/Downgrwader is no being supported by current versions!!");
+				}
+				// Import upgrader + reflect its operations!
 				cssJSToolbox::import($upgrader['file']);
-				$operations['operations']['upgrade'] = CJTInstallerReflection::getInstance($upgrader['class'], 'CJTUpgradeNonTabledVersions')->getOperations();				
+				$operations[CJTPlugin::DB_VERSION]['operations']['upgrade'] = CJTInstallerReflection::getInstance($upgrader['class'], 'CJTUpgradeNonTabledVersions')->getOperations();				
 			}
-			// Cache operations!
-			update_option(self::INSTALLATION_STATE, $operations);
+			update_option(self::INSTALLATION_STATE, $operations);				
 		}
-		return $operations;
+		return $operations[CJTPlugin::DB_VERSION];
 	}
-	
+
 	/**
 	* put your comment there...
 	* 
@@ -126,15 +131,16 @@ class CJTInstallerModel {
 		// Read input!
 		$rOperation = $this->input['operation'];
 		$type = $rOperation['type'];
-		// Get allowed operations with thier state!
+		// Get allowed operations with their state!
 		$operations = (array) get_option(self::INSTALLATION_STATE);
+		$vOperations =& $operations[CJTPlugin::DB_VERSION];
 		// Invalid operation!
-		if (!isset($operations['operations'][$type][$rOperation['name']])) {
+		if (!isset($vOperations['operations'][$type][$rOperation['name']])) {
 			throw new Exception('Invalid operation');
 		}
 		else {
 			// Install only if not installed!
-			$operation =& $operations['operations'][$type][$rOperation['name']];
+			$operation =& $vOperations['operations'][$type][$rOperation['name']];
 			if ($operation['state'] != self::OPERATION_STATE_INSTALLED) {
 				// Import installer and get installer object!
 				switch ($type) {
@@ -143,7 +149,7 @@ class CJTInstallerModel {
 						$installer = CJTInstaller::getInstance();
 					break;
 					case 'upgrade':
-						$upgrader = $operations['upgrader'];
+						$upgrader = $vOperations['upgrader'];
 						cssJSToolbox::import($upgrader['file']);
 						$installer = new $upgrader['class']();
 					break;
