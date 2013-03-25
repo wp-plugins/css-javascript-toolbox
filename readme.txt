@@ -125,8 +125,8 @@ Sometimes a bug decides to rear its ugly head and when this happens, this is whe
 
 = 6.0.6 =
 * Fix: Conflict with other Plugins!
-* Fix: Disallow (with user notice) upgrade/downgrade if the target version is not being supported, therefor saving user data!
 * Fix: Javascript exception throwed when dismissing the install/upgrade notice.
+* Enhancement: Disallow (with user notice) upgrade/downgrade if the target version is not being supported, therefor saving user data!
 * Enhancement: Don't break down the site if manual upgrade/downgrage process is incompleted! Allow user to revert back manually or disable the Plugin.
 * Enhancement: E_ALL complain! Suppress all notices when WP_DEBUG set to true, allow better development, fast performance and error handling.
 
