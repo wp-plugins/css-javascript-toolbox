@@ -114,15 +114,21 @@ Make sure you have copied and pasted the Page, Post, or Category URL exactly as 
 Hook location feature gives you control over the location of outputting the CSS/JS code. This is useful in case overriding another plugins' CSS is required. Also sometimes its better to put your JS code in the footer to avoid slowing down your page load.
 
 = I received a weird error, what do I do now? =
-Sometimes a bug decides to rear its ugly head and when this happens, this is when we need your help.  If you receive an error, if it be a PHP error, or some functionality that isn't working for whatever reason, please visit our: [CSS & JavaScript Toolbox website and let us know](http://css-javascript-toolbox.com/support/plugin/css-javascript-toolbox-forum)
+Sometimes a bug decides to rear its ugly head and when this happens, this is when we need your help.  If you receive an error, if it be a PHP error, or some functionality that isn't working for whatever reason, please visit our: [CSS & JavaScript Toolbox website and let us know](http://wordpress.org/support/plugin/css-javascript-toolbox)
 
 == Screenshots ==
 
 1. Main CJT V6 CE code block screen
 2. CJT Shortcode button
 
-
 == Changelog ==
+
+= 6.0.6 =
+* Fix: Conflict with other Plugins!
+* Fix: Disallow (with user notice) upgrade/downgrade if the target version is not being supported, therefor saving user data!
+* Fix: Javascript exception throwed when dismissing the install/upgrade notice.
+* Enhancement: Don't break down the site if manual upgrade/downgrage process is incompleted! Allow user to revert back manually or disable the Plugin.
+* Enhancement: E_ALL complain! Suppress all notices when WP_DEBUG set to true, allow better development, fast performance and error handling.
 
 = 6.0 =
 * Core code is 100% re-written for optimum performance and future enhancements, and is 100% based on MVC (Model–view–controller) design.
