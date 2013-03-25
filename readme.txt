@@ -62,10 +62,10 @@ Regards,
 Team CJT
 
 == Installation ==
-
-1. Upload the 'css-js-toolbox' folder to the '/wp-content/plugins/' directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Click 'CSS & JavaScript Toolbox' link in the main navigation (left side of your Dashboard).
+1. If you're upgrading from older versions its highly recommended to backup your database before upgrading.
+2. Upload the 'css-js-toolbox' folder to the '/wp-content/plugins/' directory
+3. Activate the plugin through the 'Plugins' menu in WordPress
+4. Click 'CSS & JavaScript Toolbox' link in the main navigation (left side of your Dashboard).
 
 == Frequently Asked Questions ==
 = Why was the CJT plugin developed and what is it used for? =
@@ -191,15 +191,18 @@ Sometimes a bug decides to rear its ugly head and when this happens, this is whe
 == Upgrade Notice ==
 
 = 0.8 =
-- Templates feature/system is not available anymore! Please backup your templates data manually before upgrading. You can do this by copying and pasting CSS and JS template data into a text editor and saving your text file.
-- If you have any other third-party plugin or software integrated with the CJT plugin database, please note that the database structure has been completely changed in CJT V6 CE.
-- Linked scripts are now obsolete! If you've linked scripts with any code blocks, then those blocks might stop working.
+Its recommended to backup your database before upgrading.
+Templates feature/system is not available anymore! Please backup your templates data manually before upgrading.
+You can do this by copying and pasting CSS and JS template data into a text editor and saving your text file.
+If you have any other third-party plugin or software integrated with the CJT plugin database, please note that the database structure has been completely changed in CJT V6 CE.
+Linked scripts are now obsolete! If you've linked scripts with any code blocks, then those blocks might stop working.
 
 = 0.3 =
-- Templates feature/system is not available anymore! Please backup your templates data manually before upgrading. You can do this by copying and pasting CSS and JS template data into a text editor and saving your text file.
-- If you have any other third-party plugin or software integrated with the CJT plugin database, please note that the database structure has been completely changed in CJT V6 CE.
-- Code block names will get changed as 'CSS & Javascript Block' phrase will be removed and replaced by 'Block' word.
-- The double-slashes fix modules is now obsolete! If you have extra slashes (double slashes) in your code block you have to clean it manually yourself or upgrade to version 0.8 to fix them first!
+Its recommended to backup your database before upgrading.
+Templates feature/system is not available anymore! Please backup your templates data manually before upgrading.
+You can do this by copying and pasting CSS and JS template data into a text editor and saving your text file. If you have any other third-party plugin or software integrated with the CJT plugin database, please note that the database structure has been completely changed in CJT V6 CE.
+Code block names will get changed as 'CSS & Javascript Block' phrase will be removed and replaced by 'Block' word.
+The double-slashes fix modules is now obsolete! If you have extra slashes (double slashes) in your code block you have to clean it manually yourself or upgrade to version 0.8 to fix them first!
 
 == Credits ==
 	
