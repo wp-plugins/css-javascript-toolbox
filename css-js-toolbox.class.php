@@ -166,7 +166,7 @@ class cssJSToolbox extends CJTHookableClass {
 	* put your comment there...
 	* 
 	*/
-	public function getSecurityToken() {
+	public static function getSecurityToken() {
 		return wp_create_nonce(CJTController::NONCE_ACTION);
 	}
 	
