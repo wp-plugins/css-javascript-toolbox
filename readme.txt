@@ -7,7 +7,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.3
 Tested up to: 3.5.1
-Stable tag: 6.0.7
+Stable tag: 6.0.9
 
 Easily add custom CSS, JavaScript, HTML and PHP code to unique CJT code blocks and assign them wherever you want.
 
@@ -122,6 +122,10 @@ Sometimes a bug decides to rear its ugly head and when this happens, this is whe
 2. CJT Shortcode button
 
 == Changelog ==
+
+= 6.0.9 =
+* Enhancement: Suppress PHP errors displayed under STRICT PHP configuration like PHP >= 5.4.x and therefor boost performance, increase result and security reliability!
+* Fix: Installer operations state is cleared after the install/upgrade is interrupted, cause the repeats/re-executes of the install/upgrade operations.
 
 = 6.0.7 =
 * Fix: textarea HTML tag break down CJT Block code.
