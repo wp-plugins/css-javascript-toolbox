@@ -14,7 +14,7 @@ Easily add custom CSS, JavaScript, HTML and PHP code to unique CJT code blocks a
 == Description ==
 CSS & JavaScript Toolbox (or CJT) is a powerful and flexible plugin, which allows you to contribute to your WordPress installation code via an easy-to-use web interface. You will be able to modify or extend your site functionality and appearance by adding custom code directly into CJT code blocks and assign them to pages, posts, custom posts, categories, URLs, expressions, and loads more!
 
-[youtube http://youtu.be/A2AcTeU_tMk]
+[youtube http://www.youtube.com/watch?v=A2AcTeU_tMk]
 
 If you like to know more about the development state, issues and to tracke future versions code please follow us on [GitHub Plugin repository](https://github.com/css-javascript-toolbox/css-javascript-toolbox-plugin).
 
