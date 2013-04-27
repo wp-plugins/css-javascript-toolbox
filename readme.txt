@@ -1,6 +1,6 @@
 === CSS & JavaScript Toolbox ===
 Contributors: wipeoutmedia
-Author URL: http://css-javascript-toolbox.com
+Author URL: http://css-javascript-toolbox.com/
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EWDWF75JHT9Q6
 Tags: plug, customise, style, scripts, hack, Wordpress, contribute, enhancing, HTML, CSS, Javascript, PHP, execute, display, output, header, footer, apply, requests, match, hook, run
 License: GPLv2 or later
