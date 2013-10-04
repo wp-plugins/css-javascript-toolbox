@@ -18,44 +18,28 @@
 		/**
 		* 
 		*/
-		this._onadvancedaccordionchanged = function(event, ui) {
-			// Activate textarea under the current selected item content!
-			ui.newContent.find('textarea').focus();
-		}
+		this.pagesPanel = null;
 		
 		/**
 		* 
 		*/
-		this._onselectchilds = function(event) {
-			// Initialize vars.
-			var overlay = $(event.target);
-			var checkbox = overlay.parent().find('.select-childs');
-			var state = checkbox.prop('checked') ? '' : 'checked';
-			// Work only if select-child checkbox is interactive!
-			if (checkbox.attr('disabled') != 'disabled') {
-				// Revert checkbox state.
-				checkbox.prop('checked', state);
-				// Clone state to parent checkbox.
-				checkbox.parent().find('label>input:checkbox').prop('checked', state).trigger('change');
-				//Clone state to all child checkboxes
-				checkbox.parent().find('.children input:checkbox').prop('checked', state).trigger('change');
+		this._onswitchstate = function(state) {
+			switch (state) {
+				case 'restore':
+					this.pagesPanel.loadAssignedOnlyMode = true;
+				break;
 			}
-			// For link to behave inactive.
-			return false;
 		}
 		
-		// Initialize parent class.
+		/// Initialize parent class.
+		// Add assigment panel fields to the restoreRevision args.
+		args.restoreRevision = {fields : ['code', 'pages', 'posts', 'categories', 'pinPoint', 'links', 'expressions']};
 		this.initCJTPluginBase(node, args);
-		// Activate objects panel!
-		var pagesPanel = this.block.box.find('.cjt-pages-tab').tabs();
-		// Accordion menu for Advanced TAB.
-		this.block.box.find('#advanced-accordion-' + this.block.get('id')).accordion({
-				change : this._onadvancedaccordionchanged,
-				header: '.acc-header'
-			}
-		);
-		// Put select-childs checkboxes in action!
-		pagesPanel.find('.select-childs-checkbox-overlay').click($.proxy(this._onselectchilds, this));
+		
+		// Plug the assigment panel, get the jQuery ELement for it
+		var assigmentPanelElement = this.block.box.find('#tabs-' + this.block.get('id'));
+		this.pagesPanel = assigmentPanelElement.CJTBlockAssignmentPanel({block : this}).get(0).CJTBlockAssignmentPanel;
+
 	} // End class.
 	
 	// Extend CJTBLockPluginBase.
