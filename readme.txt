@@ -2,12 +2,12 @@
 Contributors: wipeoutmedia
 Author URL: http://css-javascript-toolbox.com
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=EWDWF75JHT9Q6
-Tags: plug, customise, style, scripts, hack, Wordpress, contribute, enhancing, HTML, CSS, Javascript, PHP, execute, display, output, header, footer, apply, requests, match, hook, run
+Tags: Post, posts, admin, sidebar, page, pages, image, plug, plugin, customise, style, scripts, hack, Wordpress, HTML, CSS, JavaScript, HTML5, jQuery, PHP, code, script, scripts, manage, management, display, output, header, footer, apply, requests, match, hook, execute, run
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
-Tested up to: 3.6.1
-Stable tag: 6.1
+Tested up to: 3.7.1
+Stable tag: 6.1.1
 
 Easily add custom CSS, JavaScript, HTML and PHP code to unique CJT code blocks and assign them wherever you want.
 
@@ -127,6 +127,14 @@ Sometimes a bug decides to rear its ugly head and when this happens, this is whe
 2. CJT Shortcode button
 
 == Changelog ==
+
+= 6.1.1 =
+* Fix: Validate block name when editing and adding blocks.
+* Fix: Code Blocks is not being applied on WPEngine servers and other servers related to the MYSQL query error.
+* Fix: Load block code one time after its first time opened as it was loaded every time the block is opened.
+* Enhance: Show User-PHP code errors only when WP_DEBUG is set to TRUE.
+* Enhance: Auto-Size edit-block-name text field to fit the current block-name, therefor display the name without the need of moving the cursor to the end.
+* Enhance: Disable new-block form fields while saving prevent user from duplicating block when traffic is slow.
 
 = 6.1 =
 * Enhance: Initially don't load Block assignment panel items: Speed up Blocks page loading time when its initially opened, also affect the browser performance as the items is not loaded or rendered before its required.

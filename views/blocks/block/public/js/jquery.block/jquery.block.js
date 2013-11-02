@@ -266,6 +266,7 @@
 		*
 		*/
 		this._oneditname = function(event) {
+			// Initialize.
 			var editName = this.elements.editBlockName;
 			var inputText = editName.find('input.block-name');
 			// When block name clicked don't toggle postbox.
@@ -294,6 +295,13 @@
 					'font-size' : this.elements.blockName.css('font-size'),
 					'font-family' : this.elements.blockName.css('font-family')
 				};
+				// Make the textbox wider in case the displayed name is 
+				// wider than the text field.
+				var labelWidth = parseInt(this.elements.blockName.css('width'));
+				var textWidh = parseInt(inputText.css('width'));
+				if (labelWidth > textWidh) {
+					styles.width = (labelWidth + 100) + 'px';
+				}
 				inputText.css(styles);
 				// Display.
 				editName.css('display', 'block');
@@ -369,7 +377,7 @@
 						// Remove loading state.
 						this.block.aceEditor.setReadOnly(false);
 						// Mark as loaded.
-						jEditor.removeClass('iniially-loaded');
+						jEditor.addClass('initially-loaded');
 					}, this)
 				);
 			}
@@ -441,25 +449,24 @@
 			// Save only if new and old name are not same.
 			var blockName = this.elements.editBlockName.find('input.block-name').val();
 			// Name cannot be empty!
-			if (!blockName) {
-				// Reset the name back!
-				// fill name so the below code will be compatible to handle both cases.
-				blockName = this.block.get('name');
+			if (!blockName.match(/^[A-Za-z0-9\!\#\@\$\&\*\(\)\[\]\x20\-\_\+\?\:\;\.]{1,50}$/)) {
 				// Show message!
-				alert(CJTJqueryBlockI18N.nameCantBeEmpty);
+				alert(CJTJqueryBlockI18N.invalidBlockName);
 			}
-			// Change block name.
-			this.block.set('name', blockName)
-			.success($.proxy(
-				function(rName) {
-				// Update metabox title when sucess.
-				this.elements.blockName.text(rName.value);
-				}, this)
-			);
-			// Update on server.
-			this.block.sync('name');
-			// Hide edit name input field and tasks buttons.
-			this._oncanceleditname();
+			else { // Simply save!
+				// Change block name.
+				this.block.set('name', blockName)
+				.success($.proxy(
+					function(rName) {
+					// Update metabox title when sucess.
+					this.elements.blockName.text(rName.value);
+					}, this)
+				);
+				// Update on server.
+				this.block.sync('name');
+				// Hide edit name input field and tasks buttons.
+				this._oncanceleditname();
+			}
 		}
 		
 		/**
