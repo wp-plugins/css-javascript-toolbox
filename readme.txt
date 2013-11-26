@@ -7,7 +7,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
 Tested up to: 3.7.1
-Stable tag: 6.1.1
+Stable tag: 6.1.2
 
 Easily add custom CSS, JavaScript, HTML and PHP code to unique CJT code blocks and assign them wherever you want.
 
@@ -17,7 +17,7 @@ CSS & JavaScript Toolbox is a code management plugin that gives you the tools to
 [youtube http://www.youtube.com/watch?v=Br4tVp6QFwA]
 
 = Upgrade to CJT Pro =
-You will get more power and flexibility, better security, and a lot more features, tools and options in CJT Pro. Features in Pro include: a code auto completion system (for CSS, JavaScript, PHP, and HTML), code block metabox support for Pages/Posts, heaps of editor tools, external script support, a powerful code template manager, script package installer, and the list goes on. [Click here to see all the benefits of CJT Pro](http://css-javascript-toolbox.com/css-javascript-toolbox-pro)
+You will get more power and flexibility, better security, and a lot more features, tools and options in CJT Pro. Features in Pro include: a code auto completion system (for CSS, JavaScript, PHP, and HTML), code block metabox support for Pages/Posts, heaps of editor tools, external script support, a powerful code template manager, script package installer, and the list goes on. [Click here to see all the benefits of CJT Pro](http://css-javascript-toolbox.com/)
 
 = Who is this plugin for? =
 This plugin is primarily intended for WordPress website developers and designers. But that is not to say that others would not be able to get use out of it. CJT can be used for a lot of things from teachers, students learning to code, to mum and dad bloggers wanting to add Google Analytics or other scripts to their website.
@@ -44,7 +44,7 @@ This plugin is primarily intended for WordPress website developers and designers
 - Individual code block Revisions can be saved.  Also, you can entirely save all of your code blocks with the Backups feature.
 
 = Would like to know more? =
-If you would like to learn more, please click to [download the CJT User Manual](http://css-javascript-toolbox.com/css-javascript-toolbox-free).
+If you would like to learn more, please click to [download the CJT User Manual](http://css-javascript-toolbox.com/cjt-free-user-manual-free-download/).
 
 = Scripts, scripts, glorious scripts! =
 If you would like to learn how to use our plugin with some script examples, please visit our [Scripts page](http://css-javascript-toolbox.com/category/scripts).  If you are a script author and would like to get more exposure for your scripts, please submit your scripts to us.  Click [Submit a Script](http://css-javascript-toolbox.com/submit-a-script) to find out more. 
@@ -127,6 +127,9 @@ Sometimes a bug decides to rear its ugly head and when this happens, this is whe
 2. CJT Shortcode button
 
 == Changelog ==
+
+= 6.1.2 =
+* Fix: Break Wordpress frontend page pagination by issuing 301 redirect.
 
 = 6.1.1 =
 * Fix: Validate block name when editing and adding blocks.
