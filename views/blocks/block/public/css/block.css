@@ -5,6 +5,7 @@
 */
 .cjt-block {min-width: 750px;}
 
+#cjtoolbox-admin {font-size: 12px !important;}
 #cjtoolbox-admin div.postbox {
 	display:none 
 	-moz-border-radius: 6px;
@@ -21,6 +22,7 @@
 	border-top-left-radius: 6px;
 	border-top-right-radius: 6px;
 	border-bottom-color: #cccccc;
+	font-size: 12px;
 }
 #cjtoolbox-admin #poststuff h3, .metabox-holder h3 {padding: 8px 10px;}
 /* Editor langauges list */
@@ -59,7 +61,7 @@
 	width: 24px;
 	height: 24px;
 	display: inline-block;
-	/* margin-top: 3px; */
+	margin-top: 3px;
 	cursor: pointer;
 }
 .block-toolbox .icons-group a.il-60x23 {
@@ -94,7 +96,7 @@
 	padding-left: 23px;
 	padding-top: 5px;
 	position: relative;
-	top: -9px;
+	top: -7px;
 	width: 37px !important;
 	height: 18px !important;
 }
@@ -110,7 +112,7 @@
 	padding-left: 23px;
 	padding-top: 5px;
 	position: relative;
-	top: -9px;
+	top: -7px;
 	width: 45px !important;
 	height: 18px !important;
 	margin-right: 10px !important;
@@ -136,6 +138,7 @@
   height: 30px;
   top: 0px;
   display: none;
+  font-size: 15px;
 }
 .edit-block-name .icons-group {
 	display: inline-block;
@@ -147,14 +150,11 @@
   width: 200px;
   margin-right: 10px;
   height: 24px;
-  background-color: #F1F1F1;
   position: relative;
-  top: -6px;
-  margin-left: -3px;
+	top: -3px;
+	margin-left: -4px;
 }
-span.block-name {
-	cursor: pointer;
-}
+span.block-name {cursor: pointer; font-size: 15px;}
 .edit-block-name .cancel { background-image: url(../images/edit-block-name/cancel.png); }
 .edit-block-name .save { background-image: url(../images/edit-block-name/save.png); }
 

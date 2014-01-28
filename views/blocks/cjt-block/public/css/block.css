@@ -1,3 +1,4 @@
+.postbox .inside { margin-right: 6px !important; }
 /** reserve Objects Panel space */
 .cjcodeblock {margin-right:317px;}
 /*  Pages Panel */
@@ -13,9 +14,28 @@
 }
 /* Wrap long text */
 .pagelist a{color: black; text-decoration: none;}
-.select-childs {position: relative; left: 2px; top: 2px; margin-left:-12px !important; margin-right: 1px !important; margin-top: 0px !important;}
-.select-childs-checkbox-overlay {background-color: #bb5300; position: relative; width: 12px; height: 12px; opacity: 0.3; filter: alpha(opacity = 30); display: inline-block; top: 3px; z-index: 1; left: 3px;}
+.select-childs {
+	position: relative;
+	left: -1px;
+	top: -1px;
+	margin-left: -12px !important;
+	margin-right: 1px !important;
+	margin-top: 0px !important;
+}
+.select-childs-checkbox-overlay {
+	background-color: #bb5300;
+	position: relative;
+	width: 16px;
+	height: 16px;
+	opacity: 0.3;
+	filter: alpha(opacity = 30);
+	display: inline-block;
+	top: 4px;
+	z-index: 1;
+	left: 3px;
+}
 .select-childs-checkbox-overlay:hover {opacity: 0.5; filter: alpha(opacity = 50);}
+
 .pagelist a:hover{color: #B06D38; font-weight: bold;}
 .pagelist>li>span {width: 203px;overflow: hidden; display: inline-block; height: 21px; vertical-align: middle;}
 .pagelist li span>a {margin-left: 4px;}
@@ -28,7 +48,7 @@
 div.cjpageblock .objects-list-button > a.prog-colored {color: transparent !important;}
 
 .info-panel {display: none; margin-top: 4px; margin-right: 2px; text-align: right;}
-.info-panel .counter {font-size: 14px;}
+.info-panel .counter {font-size: 14px; position: relative; top: -4px;}
 .info-panel .counter .info-panel-loaded-count {color: #A5581B;}
 .info-panel .optional-actions {display: inline-block; width: 80px; height: 12px;}
 .info-panel .optional-actions .pagination-list {
@@ -47,9 +67,9 @@ div.cjpageblock .objects-list-button > a.prog-colored {color: transparent !impor
 	width: 61px;
 	height: 198px !important;
 	position: relative;
-	margin-left: -64px;
+	margin-left: -62px;
 	margin-top: -179px;
-	left: -13px;
+	left: -15px;
 	top: -7px;
 	color: #A5581B;
 	font-size: 13px;
@@ -117,7 +137,7 @@ a.acc-header:visited,
 .cjpageblock .ui-tabs .ui-tabs-nav { margin: 0;}
 .cjpageblock .ui-tabs .ui-tabs-nav li { list-style: none; top: 1px; margin: 0 .2em 1px 0; padding: 0; white-space: nowrap; }
 .cjpageblock .ui-tabs .ui-tabs-nav li a { background:#F1F1F1; color:#999999; border-color:#DFDFDF #DFDFDF #CCCCCC; height:18px;margin:5px 5px 0 0;float:right;cursor:pointer;border-width:1px;border-style:solid;-moz-border-radius:3px 3px 0 0;-webkit-border-top-right-radius:3px;-webkit-border-top-left-radius:3px;-khtml-border-top-right-radius:3px;-khtml-border-top-left-radius:3px;border-top-right-radius:3px;border-top-left-radius:3px; border-bottom: 0 !important; }
-.cjpageblock .ui-tabs .ui-tabs-nav li a { float: left; padding: .5em 1.4em; text-decoration: none; }
+.cjpageblock .ui-tabs .ui-tabs-nav li a { font-size: 12px; float: left; padding: .5em 1.4em; text-decoration: none; }
 .cjpageblock .ui-tabs .ui-tabs-nav li.ui-tabs-selected { margin-bottom: 0; padding-bottom: 1px; }
 .cjpageblock .ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a { cursor: text; background:#E9E9E9; border-color:#CCCCCC #CCCCCC #E9E9E9; color:#333333; }
 .cjpageblock .ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */

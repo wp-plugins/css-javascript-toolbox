@@ -35,15 +35,14 @@
 .cjt-toolbox-blocks {
 	height: 27px;
 	margin-bottom: 20px;
-	background: #f3f3f3;
-	border: solid #ccc; 
-	border-width: 1px; 
-	padding: 4px 4px 4px 0px;
-	-moz-border-radius: 6px;
-	-webkit-border-radius: 6px;
-	border-radius: 6px; 
+	padding: 4px 4px 4px 0px !important;
 	clear: both;
 	visibility: hidden;
+	border: solid #ccc; 
+	border-width: 1px; 
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
 }
 .cjt-toolbox-blocks .cjt-tb-link.cjttbl-admin-tools {position: relative; top:1px}
 .cjt-toolbox-blocks .icons-group.left-bar {

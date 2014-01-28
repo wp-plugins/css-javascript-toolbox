@@ -6,8 +6,8 @@ Tags: Post, posts, admin, sidebar, page, pages, image, plug, plugin, customise, 
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.6
-Tested up to: 3.7.1
-Stable tag: 6.1.2
+Tested up to: 3.8.1
+Stable tag: 6.1.3
 
 Easily add custom CSS, JavaScript, HTML and PHP code to unique CJT code blocks and assign them wherever you want.
 
@@ -127,6 +127,19 @@ Sometimes a bug decides to rear its ugly head and when this happens, this is whe
 2. CJT Shortcode button
 
 == Changelog ==
+
+= 6.1.3 =
+* Enhance: UI Compatibility with Wordpress >= 3.8.
+* Deprecated: New Block Form Activate, Location Hook and Initial position fields.
+* Deprecated: Block Revisions.
+* Deprecated: Blocks Backup and Restore.
+* Deprecated: Assignment Panel Select-Childs Checkboxes.
+* Deprecated: Minimize and Mazimize All.
+* Deprecated: Batch Process (Delete All and Delete Empty).
+* Deprecated: Output Location Switch (Header and Footer).
+* Deprecated: State Switch (Activate, Deactivate and Invert).
+* Deprecated: Shortcode TinyMCE button (Community users has to write Shortcode manually).
+* Deprecated: Don't load more assignment objects by scroll (Community users has to use the pagination list).
 
 = 6.1.2 =
 * Fix: Break Wordpress frontend page pagination by issuing 301 redirect.
