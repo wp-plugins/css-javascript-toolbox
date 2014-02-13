@@ -3,7 +3,7 @@
 Plugin Name: CSS & JavaScript Toolbox
 Plugin URI: http://css-javascript-toolbox.com/css-javascript-toolbox-free
 Description: CJT Plugin for WordPress to easily add custom CSS and JavaScript to individual pages
-Version: 6.1.4
+Version: 6.1.5
 Author: Wipeout Media 
 Author URI: http://css-javascript-toolbox.com/
 License:
@@ -91,11 +91,21 @@ class CJTPlugin extends CJTHookableClass {
 	* 
 	*/
 	const DB_VERSION = '1.1-CE';
+		
+	/**
+	* 
+	*/
+	const Edition = 'free';
 	
 	/**
 	* 
 	*/
-	const VERSION = '6.1.4 CE';
+	const FW_Version = '2.0';
+
+	/**
+	* 
+	*/
+	const VERSION = '6.1.5 CE';
 	
 	/**
 	* 
