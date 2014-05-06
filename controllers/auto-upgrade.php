@@ -29,16 +29,25 @@ class CJTAutoUpgradeController extends CJTController {
 		// Get all CJT-Plugins (Include CJT Plugin itself + all its extensions) that has activate
 		// license key!
 		$activeLicenses = $model->getStatedLicenses();
-		// Import EDD updater Class!
-		if (!class_exists('EDD_SL_Plugin_Updater')) {
-			cssJSToolbox::import('framework:third-party:easy-digital-download:auto-upgrade.class.php');
+		// Always REQUEST CJT server even if not key activated yet.
+		// FREE edition will just do normal check @Wordpress:reporioty
+		if (!isset($activeLicenses[CJTSetupModel::EDD_PRODUCT_NAME]) && (CJTPlugin::Edition != 'free')) {
+			$activeLicenses[CJTSetupModel::EDD_PRODUCT_NAME] = array(
+				'plugin' => array('Version' => CJTPlugin::VERSION, 'AuthorName' => 'CTK'),
+				'license' => array('key' => str_repeat('0', 32)),
+				'component' => array('pluginBase' => 'css-javascript-toolbox/css-js-toolbox.php')
+			);
 		}
+		// Import EDD updater Class!
+		cssJSToolbox::import('framework:third-party:easy-digital-download:auto-upgrade.class.php');
 		// Activate Automatic upgrade for all activated licenses/components!
 		foreach ($activeLicenses as $name => $state) {
 			// Initializingn vars for a single state/component!
-			$plugin =& $state['plugin'];
+			$pluginFile = ABSPATH . PLUGINDIR . '/' . $state['component']['pluginBase'];
+			// Stop using Cached Data as it causes issue, always 
+			// get fresh plugin data.
+			$plugin = get_plugin_data($pluginFile);
 			$license =& $state['license'];
-			$componentPluginPath = ABSPATH . PLUGINDIR . "/{$state['component']['pluginBase']}";
 			// Edd API parameter to be send along with he check!
 			$requestParams= array(
 				'version' => $plugin['Version'],
@@ -47,7 +56,7 @@ class CJTAutoUpgradeController extends CJTController {
 				'item_name' => $name,
 			);
 			// Set EDD Automatic Updater!
-			$updated = new EDD_SL_Plugin_Updater($cjtWebServer, $componentPluginPath, $requestParams);
+			$updated = new CJT_EDD_SL_Plugin_Updater($cjtWebServer, $pluginFile, $requestParams);
 		}
 	}
 } // End class.

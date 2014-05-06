@@ -34,10 +34,8 @@ class CJTSettingsManagerView extends CJTView {
 		// Define setting pages.
 		$this->pages = array(
 			array('name' => 'uninstall', 'displayName' => cssJSToolbox::getText('Uninstall')),
+			array('name' => 'metabox', 'displayName' => cssJSToolbox::getText('MetaBox')),
 		);
-		// Enqueue external resources.
-		$this->enqueueScripts();
-		$this->enqueueStyles();
 	}
 	
 	/**

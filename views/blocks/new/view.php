@@ -25,19 +25,6 @@ class CJTBlocksNewView extends CJTView {
 	public $position;
 	
 	/**
-	* Initialize view object.
-	* 
-	* @see CJTView for more details
-	* @return void
-	*/
-	public function __construct($parameters) {
-		parent::__construct($parameters);
-		// Enqueue Styles & Scripts.
-		add_action('admin_print_styles', array(__CLASS__, 'enququeStyles'));
-		add_action('admin_print_scripts', array(__CLASS__, 'enququeScripts'));
-	}
-	
-	/**
 	* Output Add New Block markups.
 	* 
 	* @return void
@@ -79,8 +66,7 @@ class CJTBlocksNewView extends CJTView {
 		self::useStyles(__CLASS__,
 			'thickbox',
 			'framework:css:{CJT-}error-dialog',
-			'framework:css:{CJT-}forms',
-			'views:blocks:new:public:css:{CJT-}add-new-block'
+			'framework:css:{CJT-}forms'
 		);
 	}
 	

@@ -6,10 +6,16 @@
 /**
  * Allows plugins to use their own update API.
  * 
+ * Class below has been modified by CJT.
+ * 
+ * The name of the class is also changed
+ * as CJT cannot use another non-modified copy.
+ * CJT Must use THIS class and not the original one.
+ * 
  * @author Pippin Williamson
  * @version 1.0
  */
-class EDD_SL_Plugin_Updater {
+class CJT_EDD_SL_Plugin_Updater {
 	private $api_url = '';
 	private $api_data = array();
 	private $name = '';
@@ -32,7 +38,7 @@ class EDD_SL_Plugin_Updater {
 		$this->name = plugin_basename( $_plugin_file );
 		$this->slug = basename( $_plugin_file, '.php');
 		$this->version = $_api_data['version'];
-	
+
 		// Set up hooks.
 		$this->hook();
 	}
@@ -72,9 +78,30 @@ class EDD_SL_Plugin_Updater {
 		$api_response = $this->api_request( 'plugin_latest_version', $to_send );
 
 		if( false !== $api_response && is_object( $api_response ) ) {
-			if( version_compare( $this->version, $api_response->new_version, '<' ) ) 
+			if( version_compare( $this->version, $api_response->new_version, '<' ) ) {
 				$_transient_data->response[$this->name] = $api_response;
-	}
+			} 
+			else  {
+				/**
+				* Remove FREE edition update that cached by
+				* Wordpress plugins update.
+				* 
+				* @author CJT
+				*/
+				unset( $_transient_data->response[$this->name] );
+			}
+		}
+		else {
+			/**
+			* Remove FREE edition update that cached by
+			* Wordpress plugins update. Is must do if the 
+			* HTTP reqeust fail as it will allo user to get a FREE
+			* copy!
+			* 
+			* @author CJT
+			*/
+			unset( $_transient_data->response[$this->name] );
+		}
 		return $_transient_data;
 	}
 
