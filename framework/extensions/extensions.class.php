@@ -201,6 +201,7 @@ class CJTExtensions extends CJTHookableClass {
 						$extension = array();
 						$extension['pluginFile'] = $file;
 						$extension['file'] = basename($file);
+						$extension['defFile'] = basename($pluginDir) . DIRECTORY_SEPARATOR . basename($xmlFile);
 						// Its useful to use ABS path only at runtime as it might changed as host might get moved.
 						$extension['dir'] = str_replace((ABSPATH . PLUGINDIR . '/'), '', $pluginDir) ;
 						$extension['name'] = $pluginName;
@@ -211,6 +212,7 @@ class CJTExtensions extends CJTHookableClass {
 						// Read Basic XML Definition!
 						$definitionXML = $this->onloaddefinition(new SimpleXMLElement($extension['definition']['raw']));
 						$attrs = $definitionXML->attributes();
+						$extension['defDoc'] = $definitionXML;
 						$extension['definition']['primary']['loadMethod'] = (string) $attrs->loadMethod;
 						$extension['definition']['primary']['requiredLicense'] = (string) $definitionXML->license;
 						$className = ((string) $attrs->class);
@@ -218,7 +220,6 @@ class CJTExtensions extends CJTHookableClass {
 						$extensions[$className] = $extension;
 						// Map Plugin FILE-2-CLASS name!
 						$this->file2Classmap["{$extension['dir']}/{$extension['file']}"] = $className;
-						$definitionXML = null;
 					}
 				}
 			}
@@ -241,27 +242,53 @@ class CJTExtensions extends CJTHookableClass {
 		spl_autoload_register($this->ontregisterautoload(array($this, '__autoload')));
 		// Load all CJT extensions!
 		foreach ($this->getExtensions() as $class => $extension) {
+			// Filters!
 			extract($this->onload($extension, compact('class', 'extension')));
-			// Initialize common vars!
-			$callback = $this->onloadcallback(array($class, $this->loadMethod));
+			// Build Extension plugin path
 			$pluginPath = ABSPATH . PLUGINDIR . "/{$extension['name']}";
 			// Set runtime variables.
 			$this->extensions[$class]['runtime']['classFile'] = "{$pluginPath}/{$extension['name']}.class.php";
+			// Load definition.
+			$definitionXML = $extension['defDoc'];
+			// Extensions below version 1.0 use static classes
+			// while version 1.0 and up use objects
+			if (((string) $definitionXML->attributes()->version) == '1.0') {
+				// Instantiate extension object
+				$extensionObject = new $class($extension);
+				// Hold extension object
+				$extension['exObject'] = $extensionObject;
+				// Obejct callback
+				$callback = array($extensionObject, $this->loadMethod);
+			}
+			else {
+				# Static callback
+				$callback = array($class, $this->loadMethod);
+			}
+			// Callback filter
+			$callback = $this->onloadcallback($callback);
 			// If auto load is speicifd then import class file and bind events.
 			if ($extension['definition']['primary']['loadMethod'] == 'auto') {
-				// Load definition.
-				$definitionXML = new SimpleXMLElement($extension['definition']['raw']);
 				// If frameworkVersion is not provided assume its 0 (Older version)
 				// before frameworkversion chech even supported.
 				// otherwise compare it with current frameworkversion
 				// If the version MAJOR is different current
 				// then its incompatible.
 				$extensionVer = new CJT_Framework_Version_Version((int) ((string) $definitionXML->attributes()->requireFrameworkVersion));
-				if ($frameworkVersion->getMajor() != $extensionVer->getMajor()) {
+				if ($frameworkVersion->getMajor() < $extensionVer->getMajor()) {
+					// Detects which requird updates CJT or the Extension itself.
+					$extension['incompatibleMessage']['msg'] = cssJSToolbox::getText('Extension is required CJT Framework Version higher than currently installed, CJT need to get updated!!!');
+					$extension['incompatibleMessage']['flag'] = cssJSToolbox::getText('Aborted');
 					// Add to incomaptibility list.
 					$this->incompatibilies[$pluginPath] = $extension;
 				}
 				else {
+					# Detect extensions required old Framework
+					if ($frameworkVersion->getMajor() > $extensionVer->getMajor()) {
+						$extension['incompatibleMessage']['msg'] = cssJSToolbox::getText('Extension is required old CJT Framework Version than the installed. This extension might need to get update. Please check if this extension is currently behaving correctly!!!');
+						$extension['incompatibleMessage']['flag'] = cssJSToolbox::getText('Ignored');
+						// Add to incomaptibility list.
+						$this->incompatibilies[$pluginPath] = $extension;
+					}
 					// Bind events for compatible extensions.
 					foreach ($definitionXML->getInvolved->event as $event) {
 						// filter!
@@ -298,14 +325,11 @@ class CJTExtensions extends CJTHookableClass {
 	*/
 	public function processIncompatibles() {
 		// Proces only if in CJT page.
-		if (!isset($_GET['page']) || ($_GET['page'] != 'cjtoolbox')) {
+		if (!preg_match('/\/plugins\.php|page\=cjtoolbox/', $_SERVER['REQUEST_URI'])) {
 			return;
 		}
 		// INitialize.
-		$message = cssJSToolbox::getText('CJT detects incompatible installed extensions and must be updated. Extensions are listed below.
-																			Please upgrade those extensions from Wordpress Plugins or update page.
-																			Those extensions are now stopped until the upgrade is done.
-																			If you\'ve any problem upgrading them please visit CJT website by clicking extension links below.');
+		$message = cssJSToolbox::getText('CJT detects incompatible installed extensions, listed below with status message for every extension:');
 		$list = '';
 		// For every compatible extension add
 		// an list item with details 
@@ -316,7 +340,7 @@ class CJTExtensions extends CJTHookableClass {
 			// Show details.
 			$pluginInfo = get_plugin_data($extension['pluginFile']);
 			// List item Markup
-			$list .= "<li><a target='_blank' href='{$pluginInfo['PluginURI']}'>{$pluginInfo['Name']}</a></li>\n";
+			$list .= "<li><a target='_blank' href='{$pluginInfo['PluginURI']}'>{$pluginInfo['Name']}</a> (Status: {$extension['incompatibleMessage']['flag']}, Message: {$extension['incompatibleMessage']['msg']})</li>\n";
 		}
 		// Output full message.
 		// TODO: BAD PRACTICE1!!!!! NEVER MIX HTML WITH PHP, JUST TEMPORARY1!!!

@@ -181,9 +181,9 @@ class CJTPackageFileModel extends CJTHookableClass {
 			}
 		}
 		// Add package to database!
-		$modelPackage->save($packageInfo, $addedObjects);
-		// Chaining.
-		return $this;
+		$packageId = $modelPackage->save($packageInfo, $addedObjects);
+		// Return package Id
+		return $packageId;
 	}
 
 	/**
