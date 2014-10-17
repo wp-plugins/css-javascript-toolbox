@@ -50,9 +50,42 @@ class CJT_Framework_Wordpress_Feed {
 		$this->fields = $fields;
 		# Request server => get raw XML feed
 		$feed = wp_remote_get("http://{$this->site}/{$this->path}");
-		if (gettype($feed) !== 'WP_Error') {
-			$this->feed = new SimpleXMLElement(wp_remote_retrieve_body($feed));
+		# Getting XML content
+		$xmlContent = ((gettype($feed) !== 'WP_Error') && ($feed['response']['code'] == 200)) ?
+									wp_remote_retrieve_body($feed) :
+									'<cjterrorrequest>
+										<channel cjt_error="true">
+											<item>
+												<title>ERROR</title>
+												<description>ERROR</description>
+												<link>http://css-javascript-toolbox.com/</link>
+											</item>
+										</channel>
+									</cjterrorrequest>';
+		# Creating feed
+		$this->feed = new SimpleXMLElement($xmlContent);
+	}
+	
+	/**
+	* put your comment there...
+	* 
+	*/
+	public function getAllItems() {
+		// Initialize.
+		$items = array();
+		$xmlItems = $this->feed->channel->xpath('item');
+		// Read only items count specifed by $count param.
+		foreach ($xmlItems as $xmlItem) {
+			# Read fields.
+			$item = array();
+			foreach ($this->fields as $field) {
+				$item[$field] = (string) $xmlItem->$field;
+			}
+			# Add to list
+			$items[] = $item;
 		}
+		# Return items.
+		return $items;	
 	}
 
 	/**
@@ -61,12 +94,17 @@ class CJT_Framework_Wordpress_Feed {
 	* @param mixed $count
 	*/
 	public function getLatestItems($count) {
-		// Initialize.
+		# Initialize.
 		$items = array();
-		// Read only items count specifed by $count param.
+		$xmlItems = $this->feed->channel->xpath('item');
+		# Get all available items if the total items count is less that what is originally requested
+		if (count($xmlItems) < $count) {
+			$count = count($xmlItems);
+		}
+		# Read only items count specifed by $count param.
 		for ($currentIndex = 0; $currentIndex < $count; $currentIndex++) {
 			# Copy only title and link.
-			$xmlItem = $this->feed->channel->item[$currentIndex];
+			$xmlItem = $xmlItems[$currentIndex];
 			# Read fields.
 			$item = array();
 			foreach ($this->fields as $field) {
@@ -100,7 +138,7 @@ class CJT_Framework_Wordpress_Feed {
 	* 
 	*/
 	public function isError() {
-		return !$this->feed;
+		return !$this->feed || $this->feed->channel->attributes()->cjt_error;
 	}
 
 } // End class.
