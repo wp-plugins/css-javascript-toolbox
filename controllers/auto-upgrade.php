@@ -30,8 +30,6 @@ class CJTAutoUpgradeController extends CJTController {
 		// Get all CJT-Plugins (Include CJT Plugin itself + all its extensions) that has activate
 		// license key!
 		$activeLicenses = $model->getStatedLicenses();
-		// Import EDD updater Class!
-		cssJSToolbox::import('framework:third-party:easy-digital-download:auto-upgrade.class.php');
 		// Activate Automatic upgrade for all activated licenses/components!
 		foreach ($activeLicenses as $name => $state) {
 			// Get extension def doc.
@@ -43,19 +41,14 @@ class CJTAutoUpgradeController extends CJTController {
 				if (!$updateSrcServer || ($updateSrcServer == 'CJT')) {
 					// Initializingn vars for a single state/component!
 					$pluginFile = ABSPATH . PLUGINDIR . '/' . $state['component']['pluginBase'];
-					// Stop using Cached Data as it causes issue, always 
-					// get fresh plugin data.
-					$plugin = get_plugin_data($pluginFile);
 					$license =& $state['license'];
-					// Edd API parameter to be send along with he check!
-					$requestParams= array(
-						'version' => $plugin['Version'],
-						'author' => $plugin['AuthorName'],
-						'license' => $license['key'],
-						'item_name' => $name,
-					);
 					// Set EDD Automatic Updater!
-					$updated = new CJT_EDD_SL_Plugin_Updater($cjtWebServer, $pluginFile, $requestParams);
+					try {
+						CJTStoreUpdate::autoUpgrade( $name, $license[ 'key' ], $pluginFile );	
+					}
+					catch ( CJTServicesAPICallException $exception ) {
+						die( 'CJT AUTO-UPGRADE EXCAPTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!' );
+					}
 				}
 			}
 		}
